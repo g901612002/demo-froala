@@ -1,0 +1,40 @@
+.login-title{
+    font-size:36px;
+    padding:20px;
+}
+
+.login-form {
+    border-radius: 8px;
+    background-color: white;
+    margin: 0 auto;
+    width: 450px;
+    border: 1px solid #ccc;
+    padding: 50px;
+    .verify-code-area{
+        height: 45px;
+        line-height:45px;
+    }
+    .login-submit{
+        margin-top: 10px;
+    }
+    .apply-btn{
+        margin-top: 40px;
+    }    
+}
+.left-addon {
+    position: relative;
+    input{
+        padding-left:  36px;
+    }
+    .glyphicon {
+        position: absolute;
+        padding: 10px;
+        pointer-events: none;
+    }
+    .glyphicon-lock {
+        left: 0;
+    }
+    .glyphicon-user {
+        left: 0;
+    }
+}

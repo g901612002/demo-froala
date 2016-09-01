@@ -1,0 +1,70 @@
+<div ng-init="ctrl.init()">
+	<div class="modal-header">
+	    <h4 class="modal-title">選擇圖片</h4>
+	</div>
+	<div class="modal-body">
+		<div class="pic-group">
+			<div class="group-item"
+				ng-repeat="group in ctrl.grouplist"
+				ng-class="{'selected':ctrl.isSelected(group)}"
+				ng-click="ctrl.doSelectGroup(group)">
+				<span ng-bind="group.name"></span>
+				<span class="group-count">({{group.totalcount}})</span>
+			</div>
+		</div>
+		<div class="pic-content">
+			<div class="pic-toolbar">
+				<div class="toolbar-right">
+					<div class="tip-block">
+						<span class="tip-inner">大小不超過5MB，一次最多上傳5張</span>
+					</div>
+					<div class="button-block">
+						<picupload
+							btnclass="btn-success"
+							channelpkey="ctrl.channelpkey"
+							grouppkey="ctrl.selectgroup.pkey">
+						</picupload>
+					</div>
+				</div>
+			</div>
+			<div class="content-empty" ng-if="ctrl.piclist.length===0">
+				該分組暫時沒有圖片素材
+			</div>
+			<div class="content-list" ng-if="ctrl.piclist.length > 0">
+				<div class="pic-item" ng-repeat="pic in ctrl.piclist"
+					ng-class="{'pic-selected':pic.selected}"
+					ng-click="ctrl.doSelectPic(pic)">
+					<img ng-src="{{Util.getAssetUrl(pic.photo)}}">
+					<div class="pic-selected-mask" ng-show="pic.selected" >
+						<div class="fa fa-check fa-5x mask-icon">
+						</div>
+					</div>
+					<div class="pic-name">
+						<span class="pic-name-inner">{{pic.name}}</span>
+					</div>
+					<div class="pic-desc">
+						W:{{pic.width}} x H:{{pic.height}}
+					</div>
+				</div>
+			</div>
+			<div class="content-bottom text-right"
+				ng-if="ctrl.totalcount>ctrl.pagesize">
+				<pagination boundary-links="true" items-per-page="ctrl.pagesize" total-items="ctrl.totalcount" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" max-size="ctrl.maxPagination" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="footer-left">
+			己選{{ctrl.selectpiccount}}個，可選{{ctrl.selectpiclimit}}個
+		</div>
+		<div class="footer-right">
+		    <button ng-disabled="ctrl.selectpiccount===0"
+		    	class="btn btn-primary" ng-click="ctrl.ok()" >
+		        <span>確定</span>
+		    </button>
+		    <button class="btn btn-warning" ng-click="ctrl.cancel()">
+		        <span>取消</span>
+		    </button>
+	    </div>
+	</div>
+</div>

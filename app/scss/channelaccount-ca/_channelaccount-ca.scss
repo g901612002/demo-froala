@@ -1,0 +1,40 @@
+.ca-channelaccount {
+    .ca-channelaccount-result {
+        table {
+            td {
+                &:nth-child(2),&:nth-child(3) {
+                    position: relative;
+                    span {
+                        display: block;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 130px;
+                    }
+                }
+                &:nth-child(4) {
+                    span {
+                        display: block;
+                        color: #999;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-align: center;
+                        width: 130px;
+                    }
+                }
+                &:last-child {
+                    border-left: $layout-border;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+.ca-channelaccount-password-modal{
+    @extend %all-modal; 
+    .modal-body{
+        min-height: 100px;
+    }
+}

@@ -1,0 +1,33 @@
+<div class="pic-fileupload" ng-init="init()">
+	<button type="button" ng-hide="showtransclude"
+		class="btn btn-sm btn-upload {{btnclass}}"
+		accept="image/*"
+		ngf-select="uploadFiles($files)"
+		ngf-multiple="true">
+      本機上傳
+    </button>
+    <div ng-show="showtransclude"
+    	ng-transclude
+    	accept="image/*"
+		ngf-select="uploadFiles($files)">
+    </div>
+	<ul class="file-list"
+		ng-class="{'file-list-border':files.length>0}"
+		ng-show="isuploading">
+		<li class="file-item" ng-repeat="f in files" >
+			<div class="file-info">
+				<span class="file-name">{{f.name}}</span>
+				<span class="file-size">({{f.size / (1024*1024) | number:2}} M)</span>
+			</div>
+			<div class="file-progress">
+				<div class="progress">
+					<div role="progressbar"
+						class="progress-bar progress-bar-info"
+						style="width:{{f.progress}}%"
+        				ng-bind="f.progress + '%'">
+        			</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

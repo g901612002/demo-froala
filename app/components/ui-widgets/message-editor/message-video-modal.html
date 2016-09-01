@@ -1,0 +1,16 @@
+<div ng-init="ctrl.init()">
+  <div class="modal-header">
+      <h4 class="modal-title">
+          影片播放
+      </h4>
+  </div>
+  <div class="modal-body">
+    <videoplay videourl="{{ctrl.item.video}}" typle="{{ctrl.type}}"></videoplay>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-warning"
+              ng-click="ctrl.cancel()">
+              關閉
+      </button>
+  </div>
+</div>

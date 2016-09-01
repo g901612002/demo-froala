@@ -1,0 +1,360 @@
+.ca-media-video {
+    a,
+    button {
+        cursor: pointer;
+    }
+    margin: 25px;
+    .title {
+        height: 30px;
+        margin: 20px 0 10px 0;
+        position: relative;
+        .goback {
+            color: #999;
+            i {
+                margin-right: 5px;
+            }
+            &:hover {
+                color: #5389d6;
+            }
+        }
+        p {
+            line-height: 30px;
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    .video-list {
+        margin: 30px 0 90px;
+        .list {
+            word-wrap: break-word;
+            overflow: hidden;
+            &>li {
+                width: 290px;
+                border: 1px solid #e7e7eb;
+                padding: 0px 0px 45px 0px;
+                position: relative;
+                float: left;
+                margin: 0 25px 25px 0;
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                &:nth-child(3n+1) {
+                    clear: both;
+                }
+                &>section {
+                    padding: 15px;
+                    color: #999;
+                    h5 {
+                        color: #000;
+                        margin-bottom: 5px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .summary {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    em {
+                        font-style: normal;
+                        font-weight: normal;
+                        color: #999;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                    .video-area {
+                        position: relative;
+                        height: 160px;
+                        margin-bottom: 5px;
+                        cursor: pointer;
+                        &:hover {
+                            .video {
+                                img {
+                                    opacity: 0.5;
+                                }
+                                &:after {
+                                    display: block;
+                                }
+                            }
+                        }
+                        .video {
+                            background: #000;
+                            height: 160px;
+                            position: relative;
+                            overflow: hidden;
+                            &:after {
+                                content: "\f01d";
+                                display: none;
+                                font: normal normal normal 60px FontAwesome;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                margin: -30px 0 0 -30px;
+                                color: #fff;
+                            }
+                            img {
+                                position: absolute;
+                                top: 50%;
+                                min-height: 100%;
+                                display: block;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                min-width: 100%;
+                                &:after {
+                                    content: "";
+                                    width: 258px;
+                                    height: 160px;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background: url("images/default-rectangle.jpg");
+                                    background-size: contain;
+                                }
+                            }
+                        }
+                        p {
+                            color: #ccc;
+                            text-align: right;
+                            line-height: 1.5;
+                            position: absolute;
+                            padding: 0 3px;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            z-index: 1;
+                            &:before {
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                background: #000;
+                                opacity: 0.6;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                }
+                .btnArea {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 45px;
+                    overflow: hidden;
+                    background: #f4f4f4;
+                    border-top: 1px solid #e7e7eb;
+                    a {
+                        display: block;
+                        width: 138px;
+                        float: left;
+                        height: 45px;
+                        line-height: 45px;
+                        text-align: center;
+                        color: #B2B2B2;
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+                    a+a {
+                        width: 137px;
+                        border-left: 1px solid #e7e7eb;
+                    }
+                }
+            }
+        }
+    }
+    .editArea {
+        overflow: hidden;
+        p {
+            color: #999;
+            height: 16px;
+        }
+        i {
+            margin-right: 5px;
+        }
+        .form-group {
+            position: relative;
+            &>label {
+                position: absolute;
+                top: 0px;
+                left: 15px;
+                line-height: 30px;
+            }
+            .flag,
+            .pictext-input,
+            .pictext-textarea {
+                margin-left: 150px;
+            }
+            ul {
+                margin-left: 170px;
+                list-style: disc;
+                li {
+                    line-height: 30px;
+                    color: #999;
+                }
+            }
+            .flag {
+                span {
+                    margin-right: 10px;
+                    line-height: 30px;
+                    input {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        .videoArea {
+            margin-left: 150px;
+            height: 300px;
+            .disnone {
+                display: none;
+            }
+            .videoplay-area {
+                width: 270px;
+                border: 1px solid #e7e7eb;
+                margin-top: 20px;
+                &>section {
+                    padding: 15px;
+                    color: #999;
+                    h5 {
+                        color: #000;
+                        height: 20px;
+                        margin-bottom: 5px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    em {
+                        font-style: normal;
+                        font-weight: normal;
+                        color: #999;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                    .summary {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .video-area {
+                        position: relative;
+                        height: 160px;
+                        margin-bottom: 5px;
+                        cursor: pointer;
+                        &:hover {
+                            .video {
+                                img {
+                                    opacity: 0.5;
+                                }
+                                &:after {
+                                    display: block;
+                                }
+                            }
+                        }
+                        .video {
+                            background: #000;
+                            height: 160px;
+                            position: relative;
+                            overflow: hidden;
+                            &:after {
+                                content: "\f01d";
+                                display: none;
+                                font: normal normal normal 60px FontAwesome;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                margin: -30px 0 0 -30px;
+                                color: #fff;
+                            }
+                            img {
+                                position: absolute;
+                                top: 50%;
+                                min-height: 100%;
+                                display: block;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                min-width: 100%;
+                                &:after {
+                                    content: "";
+                                    width: 258px;
+                                    height: 160px;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background: url("images/default-rectangle.jpg");
+                                    background-size: contain;
+                                }
+                            }
+                        }
+                        p {
+                            color: #ccc;
+                            text-align: right;
+                            line-height: 1.5;
+                            position: absolute;
+                            height: 25px;
+                            padding: 0 3px;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            z-index: 1;
+                            &:before {
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                background: #000;
+                                opacity: 0.6;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .youtubeArea {
+            margin-left: 150px;
+            label {
+                margin-bottom: 10px;
+            }
+            .fa-red {
+                margin-top: 10px;
+                color: red;
+            }
+        }
+    }
+    .btnGroup {
+        margin: 40px 0;
+        border-top: 1px solid #e7e7eb;
+        padding-top: 15px;
+        text-align: center;
+    }
+    .pictext-input {
+        position: relative;
+        input {
+            padding-right: 50px;
+        }
+        span {
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            color: #999;
+        }
+    }
+    .pictext-textarea {
+        p {
+            margin-top: 5px;
+        }
+    }
+}

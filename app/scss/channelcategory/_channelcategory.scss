@@ -1,0 +1,149 @@
+.channelcategory {
+    .toolbar {
+        padding: 20px;
+    }
+    .grey {
+        margin-left: 15px;
+        color: #999;
+        font-weight: normal;
+    }
+    .setting-area {
+        overflow: auto;
+        padding: 10px 30px;
+        .tip {
+            line-height: 50px;
+            color: #999;
+        }
+        .menu-frame {
+            border: $layout-border;
+            height: 842px;
+            width: 100%;
+            box-sizing: content-box;
+            position: relative;
+            overflow: hidden;
+            .menu-sidebar {
+                min-height: 100%;
+                .selected {
+                    background-color: #f4f5f9;
+                }
+            }
+            .menu-sidebar-header {
+                @extend %menu-header;
+                .title {
+                    font-size: 18px;
+                    padding-left: 20px;
+                }
+                .icon {
+                    padding-right: 20px;
+                    font-size: 28px;
+                    color: #999;
+                    span {
+                        cursor: pointer;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .angular-ui-tree-nodes .angular-ui-tree-nodes {
+        padding-left: 0px;
+    }
+    .angular-ui-tree-placeholder {
+        border: 2px dashed #bed2db;
+    }
+    .tree-text-indent {
+        text-indent: 20px;
+    }
+    .tree-node {
+        padding: 10px;
+    }
+    .tree-node-content {
+        cursor: pointer;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: relative;
+        &:hover {
+            background-color: #f4f5f9;
+        }
+        .title {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+        }
+        .icon {
+            font-size: 24px;
+            color: #999;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            &.disabled {
+                color: #ccc;                
+                &:hover,&:visited {
+                    cursor: not-allowed;
+                }
+                &:active {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+    .border-bottom {
+        border-bottom: $layout-border;
+    }
+}
+
+.popover-reset-container {
+    padding: 20px;
+    overflow: hidden;
+    .description {
+        padding-bottom: 20px;
+    }
+    .btn {
+        width: 90px;
+        .btn-left {
+            float: left;
+        }
+        .btn-right {
+            float: right;
+        }
+    }
+}
+
+.channelcategory-manager-modal {
+    @extend %all-modal;
+    .modal-body {
+        min-height: 150px;
+        .menuform {
+            padding: 20px;
+            line-height: 50px;
+        }
+    }
+}
+
+.channelcategory-channelDetail-modal {
+    .table {
+        margin-bottom: 0;
+        &> thead > tr > th{
+            &:first-child{
+                border-left: 1px solid #ddd;
+                width: 40px; 
+            }
+            &:nth-child(2){
+                width: 340px;  
+            }
+            &:last-child{
+                width: 180px; 
+            }
+        }
+        &> tbody > tr > td{
+            &:first-child{
+                text-align: center;
+            }
+            span{
+                line-height: 32px;
+            }
+        }
+        
+    }
+}

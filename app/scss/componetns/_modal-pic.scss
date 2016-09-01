@@ -1,0 +1,136 @@
+.message-editor-pic-modal {
+    @extend %all-modal;
+    .modal-dialog {
+        width: 970px;
+    }
+    .modal-body {
+        overflow: hidden;
+        padding: 0;
+    }
+    .modal-footer {
+        text-align: left;
+        overflow: hidden;
+        .footer-left {
+            line-height: 38px;
+            float: left;
+        }
+        .footer-right {
+            float: right;
+        }
+    }
+    .pic-group {
+        float: left;
+        width: 218px;
+        .group-item {
+            &:hover {
+                background-color: #f4f5f9;
+            }
+            cursor:pointer;
+            padding:10px;
+            .group-count {
+                color: #999;
+            }
+        }
+        .selected {
+            background-color: #f4f5f9;
+        }
+    }
+    .pic-content {
+        float: right;
+        width: 750px;
+        min-height: 600px;
+        border-left: $modal-border;
+        position: relative;
+    }
+    .pic-toolbar {
+        overflow: hidden;
+        border-bottom: $modal-border;
+        .toolbar-right {
+            float: right;
+            padding: 10px;
+            display: table;
+        }
+        .tip-block {
+            display: table-cell;
+            color: #999;
+            .tip-inner {
+                vertical-align: middle;
+                padding: 6px 10px;
+                border: $modal-border;
+            }
+        }
+        .button-block {
+            display: table-cell;
+            padding-left: 10px;
+        }
+    }
+    .content-empty {
+        padding-top: 100px;
+        text-align: center;
+        color: #999;
+    }
+    .content-bottom {
+        .pagination {
+            margin: 0 10px;
+        }
+    }
+    .content-list {
+        padding: 12px;
+        .pic-item {
+            display: inline-block;
+            margin: 10px;
+            border: $layout-border;
+            img {
+                width: 158px;
+                height: 158px;
+                cursor: pointer;
+                position: relative;
+                &:after {
+                    content: "";
+                    width: 158px;
+                    height: 158px;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: url("images/default-square.jpg");
+                    background-size: contain;
+                }
+            }
+            opacity:1;
+            position:relative;
+        }
+        .pic-selected {
+            border: 2px dashed #000;
+        }
+        .pic-selected-mask {
+            opacity: 0.7;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            .mask-icon {
+                line-height: 158px;
+                text-align: center;
+                display: block;
+                color: #fff;
+                text-shadow: 2px 6px 1px #000;
+            }
+        }
+        .pic-name {
+            padding: 4px 16px;
+            text-align: center;
+            .pic-name-inner {
+                @include span-ellipsis(120px);
+                vertical-align: middle;
+            }
+        }
+        .pic-desc {
+            padding: 4px;
+            text-align: center;
+            color: #999;
+        }
+    }
+}

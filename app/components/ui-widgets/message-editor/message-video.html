@@ -1,0 +1,10 @@
+<div class="layout-message-video" ng-class="{noborder:(messageShow === 'true')}">
+	<h5 ng-if="messageShow !=='true'" ng-bind="item.title"></h5>
+	<em ng-if="messageShow !=='true'" ng-bind="(item.time | localDate)"></em>
+	<div class="video-area">
+		<div class="video" ng-click="modalOpen(item.type, item)">
+            <img ng-src="{{item.trustFrontCover}}">
+        </div>
+	</div>
+	<p ng-if="messageShow !=='true'" ng-bind="item.summary"></p>
+</div>

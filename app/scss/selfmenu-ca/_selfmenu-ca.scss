@@ -1,0 +1,191 @@
+.ca-selfmenu{
+	.toolbar{
+		padding:20px;
+	}
+	.setting-area{
+		overflow:auto;
+		padding: 10px 30px;
+		.tip{
+			line-height: 50px;
+			color:#999;
+		}
+		.menu-frame{
+			border:$layout-border;
+			height:842px;
+			width:900px;
+			box-sizing:content-box;
+			position: relative;
+			overflow: hidden;
+			.menu-sidebar{
+				width: 250px;
+				min-height: 100%;
+				border-right: $layout-border;
+				float: left;
+				.selected{
+					background-color:#f4f5f9;
+				}
+			}
+			.menu-sidebar-header{
+				@extend %menu-header;
+				.title{
+					font-size: 18px;
+					padding-left:20px;
+				}
+				.icon{
+					padding-right: 20px;
+					font-size: 28px;
+					color:#999;
+					span{
+						cursor: pointer;
+						padding-left:10px;
+					}
+				}
+			}
+			.menu-content{
+				width: 650px;
+				min-height: 100%;
+				float: right;
+				.unselect{
+					padding:100px;
+					width:100%;
+					text-align: center;
+					color:#999;
+				}
+			}
+			.menu-content-header{
+				width:100%;
+				@extend %menu-header;
+				overflow: hidden;
+				.title{
+					font-size: 18px;
+					padding-left:20px;
+					float: left;
+				}
+				.function{
+					padding-right: 20px;
+					color:#459ae9;
+					float: right;
+					overflow: hidden;
+					div{
+						cursor: pointer;
+						padding-left:6px;
+						display: inline-block;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+			.menu-content-main{
+				width:100%;
+				.menu-setting{
+					padding-top:100px;
+					color:#999;
+					.menu-toolbar{
+						padding-top:50px;
+						display: inline-block;
+						padding-left: 30px;
+						.menu-icon{
+							opacity:1;
+							cursor: pointer;
+							&:hover{
+								opacity:0.7;
+							}
+						}
+						.icontext{
+							padding-top: 10px;
+						}
+					}
+					.setting-content{
+						padding-left:30px;
+						padding-right:30px;
+					}
+					.label-menulink{
+						padding-bottom : 16px;
+					}
+				}
+			}
+		}
+	}
+	.angular-ui-tree-nodes .angular-ui-tree-nodes{
+		padding-left: 0px;
+	}
+
+	.angular-ui-tree-placeholder {
+    	border: 2px dashed #bed2db;
+	}
+
+	.tree-text-indent{
+		text-indent: 20px;
+	}
+	.tree-node {
+        padding:10px;
+    }
+    .tree-node-content {
+    	cursor: pointer;
+        padding-left:20px;
+        padding-right:20px;
+        position: relative;
+        &:hover{
+        	background-color:#f4f5f9;
+        }
+        .title{
+        	display:inline-block;
+        	height: 20px;
+        	line-height: 20px;
+        }
+        .icon{
+        	font-size: 24px;
+        	color:#999;
+        	display:inline-block;
+        	height: 20px;
+        	line-height: 20px;
+        }
+    }
+    .border-bottom{
+    	border-bottom: $layout-border;
+    }
+}
+
+.popover-reset-container{
+	padding:20px;
+	overflow: hidden;
+	.description{
+		padding-bottom: 20px;
+	}
+	.btn {
+		width: 90px;
+		.btn-left{
+			float: left;
+		}
+		.btn-right{
+			float: right;
+		}
+	}
+}
+
+.ca-selfmenu-preview-modal{
+	.modal-dialog{
+		//應改用image-width取得手機圖的寬度
+		width:355px;
+	}
+	.modal-content{
+		background-color: transparent;
+		border:none;
+		box-shadow: none;
+	}
+	.preview-footer{
+		line-height: 100px;
+	}
+}
+
+.ca-selfmenu-manager-modal{
+    @extend %all-modal;
+    .modal-body{
+        min-height: 150px;
+        .menuform{
+        	padding: 20px;
+        	line-height: 50px;
+        }
+    }
+}

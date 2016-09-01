@@ -1,0 +1,17 @@
+.channelannounce {
+    .channelannounce-result {
+        .title-span{
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 200px;
+        }
+    }
+}
+
+.channelannounce-modal{
+    .modal-dialog{
+        width:800px;
+    }
+}

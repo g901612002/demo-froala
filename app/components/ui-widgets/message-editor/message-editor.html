@@ -1,0 +1,183 @@
+<div class="message-editor-frame" ng-init="ctrl.init()">
+    <ul class="editor-toolbar">
+        <li ng-if="ctrl.showType('pictext')">
+            <a ng-class="{active:messagetype==='pictext'}"
+                ng-click="ctrl.setMessageType('pictext')">
+                <i class="fa fa-newspaper-o fa-lg"></i>
+                <span>圖文</span>
+            </a>
+        </li>
+        <li ng-if="ctrl.showType('text')">
+            <a ng-class="{active:messagetype==='text'}"
+                ng-click="ctrl.setMessageType('text')">
+                <i class="fa fa-pencil fa-lg"></i>
+                <span>文字</span>
+            </a>
+        </li>
+        <li ng-if="ctrl.showType('pic')">
+            <a ng-class="{active:messagetype==='pic'}"
+                ng-click="ctrl.setMessageType('pic')">
+                <i class="fa fa-picture-o fa-lg"></i>
+                <span>圖片</span>
+            </a>
+        </li>
+        <li ng-if="ctrl.showType('voice')">
+            <a ng-class="{active:messagetype==='voice'}"
+                ng-click="ctrl.setMessageType('voice')">
+                <i class="fa fa-microphone fa-lg"></i>
+                <span>語音</span>
+            </a>
+        </li>
+        <li ng-if="ctrl.showType('video')">
+            <a ng-class="{active:messagetype==='video'}"
+                ng-click="ctrl.setMessageType('video')">
+                <i class="fa fa-video-camera fa-lg"></i>
+                <span>影片</span>
+            </a>
+        </li>
+        <li ng-if="ctrl.showType('api')">
+            <a ng-class="{active:messagetype==='api'}"
+                ng-click="ctrl.setMessageType('api')">
+                <i class="fa fa-plug fa-lg"></i>
+                <span>API</span>
+            </a>
+        </li>
+    </ul>
+    <div ng-if="messagetype==='pictext'">
+        <section class="media-editor">
+            <input type="hidden" name="{{editorName}}" ng-model="msgapi.message.pictext" ng-required="{{editorRequired}}">
+            <div class="media-content"
+                ng-if="ctrl.hasContent('pictext') === false">
+                <div class="media-fn" ng-click="ctrl.openPicTextModal()">
+                    <a>
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">從素材庫中選擇</div>
+                    </a>
+                </div>
+                <div class="media-fn">
+                    <a ui-sref="main.ca-media.pictext-edit" target="_blank">
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">新建圖文消息</div>
+                    </a>
+                </div>
+            </div>
+            <div class="media-content"
+                ng-if="ctrl.hasContent('pictext') === true">
+                <message-pictext
+                    pictext-json="msgapi.message.pictext"
+                    content-type="string"
+                ></message-pictext>
+                <span class="media-delete" ng-click="msgapi.clearContent('pictext')">
+                    刪除
+                </span>
+            </div>
+        </section>
+    </div>
+    <div ng-if="messagetype==='text'">
+        <section class="text-editor">
+            <textarea
+                name="{{editorName}}"
+                class="form-control"
+                rows="10"
+                ng-model="msgapi.message.text"
+                ng-required="{{editorRequired}}"
+                ng-change="ctrl.changeText()">
+            </textarea>
+            <p class="editor-tip text-right">{{ctrl.word}}</p>
+        </section>
+    </div>
+    <div ng-if="messagetype==='pic'">
+        <section class="media-editor">
+            <input type="hidden" name="{{editorName}}" ng-model="msgapi.message.pic" ng-required="{{editorRequired}}">
+            <div class="media-content" 
+                ng-if="ctrl.hasContent('pic') === false">
+                <div class="media-fn" ng-click="ctrl.openPicModal()">
+                    <a>
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">從素材庫中選擇</div>
+                    </a>
+                </div>
+                <div class="media-fn picupload"
+                    showtransclude="true"
+                    channelpkey="channelpkey">
+                    <a>
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">上傳圖片</div>
+                    </a>
+                </div>
+            </div>
+            <div class="media-content"
+                ng-if="ctrl.hasContent('pic') === true">
+                <img class="media-icon" ng-src="{{ctrl.getAssetUrl(msgapi.message.pic)}}" />
+                <span class="media-delete" ng-click="msgapi.clearContent('pic')">刪除</span>
+            </div>
+        </section>
+    </div>
+    <div ng-if="messagetype==='voice'">
+        <section class="media-editor">
+            <input type="hidden" name="{{editorName}}" ng-model="msgapi.message.voice" ng-required="{{editorRequired}}">
+            <div class="media-content"
+                ng-if="ctrl.hasContent('voice') === false">
+                <div class="media-fn" ng-click="ctrl.openVoiceModal()">
+                    <a>
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">從素材庫中選擇</div>
+                    </a>
+                </div>
+                <div class="media-fn">
+                    <a ui-sref="main.ca-media.voice-edit" target="_blank">
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">新建語音消息</div>
+                    </a>
+                </div>
+            </div>
+            <div class="media-content"
+                ng-if="ctrl.hasContent('voice') === true">
+                <message-voice voice-json="msgapi.message.voice" content-type="string"></message-voice>
+                <span class="media-delete" ng-click="msgapi.clearContent('voice')">
+                    刪除
+                </span>
+            </div>
+        </section>
+    </div>
+    <div ng-if="messagetype==='video'">
+        <section class="media-editor">
+            <input type="hidden" name="{{editorName}}" ng-model="msgapi.message.video" ng-required="{{editorRequired}}">
+            <div class="media-content"
+                ng-if="ctrl.hasContent('video') === false">
+                <div class="media-fn" ng-click="ctrl.openVideoModal()">
+                    <a>
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">從素材庫中選擇</div>
+                    </a>
+                </div>
+                <div class="media-fn">
+                    <a ui-sref="main.ca-media.video-edit" target="_blank">
+                        <div class="fa fa-2x fa-plus"></div>
+                        <div class="fn-text">新建影片消息</div>
+                    </a>
+                </div>
+            </div>
+            <div class="media-content"
+                ng-if="ctrl.hasContent('video') === true">
+                <message-video video-json="msgapi.message.video" content-type="string"></message-video>
+                <span class="media-delete" ng-click="msgapi.clearContent('video')">
+                    刪除
+                </span>
+            </div>
+        </section>
+    </div>
+    <div ng-if="messagetype==='api'">
+        <section class="api-editor">
+            <div class="form-group">
+                <input class="form-control" type="url"
+                    placeholder="請輸入API網址" id="api"
+                    name="{{editorName}}"
+                    ng-model="msgapi.message.api"
+                    ng-required="{{editorRequired}}"
+                    ng-blur="ctrl.changeAPI()"
+                />
+            </div>
+        </section>
+    </div>
+</div>

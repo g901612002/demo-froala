@@ -1,0 +1,40 @@
+.voice-fileupload {
+	.file-list{
+		z-index:90;
+		position:absolute;
+		background:#fff;
+		.file-item{
+			width:100%;
+			overflow:hidden;
+			padding-left:20px;
+			padding-right:20px;
+			&:first-child{
+				padding-top:20px;
+			}
+			.file-info{
+				float:left;
+				width: 210px;
+				.file-name{
+					padding:2px;
+					@include span-ellipsis(140px);
+				}
+				.file-size{
+					vertical-align: top;
+					padding-top:2px;
+					width:60px;
+					display:inline-block;
+				}
+			}
+			.file-progress{
+				float:right;
+				width: 300px;
+			}
+		}
+	}
+	.file-list-border{
+		border:$layout-border;
+	}
+	.btn-upload{
+		@include btn-round-none;
+	}
+}

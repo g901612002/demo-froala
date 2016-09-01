@@ -1,0 +1,46 @@
+<div ng-if="!ctrl.isImgFileInputDisplay">
+	<div style="padding-bottom:10px;">
+        <button ng-click="ctrl.imgFileInputDisplay(true)" 
+        	class="btn btn-sm btn-default">	
+        	<i class="glyphicon glyphicon-edit"></i>
+        	<span> 選擇檔案</span>
+        </button>
+    </div>
+    <img width="100" height="100" 
+    	ng-show="ctrl.imgDisplay()"
+        ng-src="{{ctrl.imgSrc}}" 
+    	alt="">
+</div>
+<div ng-show="ctrl.isImgFileInputDisplay">	        
+	 <div class="input-group">
+		<input id="imgfile" type="text" class="form-control" readonly>
+	    <span class="input-group-btn">
+	    	<span class="btn btn-sm btn-primary btn-file">
+	    		<i class="glyphicon glyphicon-picture"></i>
+	    		<span> 瀏覽</span>
+                <input type="file" id="fileInput" onclick="this.value=null;" />
+	        </span>
+            <span ng-click="ctrl.imgFileInputDisplay(false)" 
+            	class="btn btn-sm btn-danger">
+            	<i class="fa fa-check"></i> 
+            	<span> 確定</span>
+            </span>					        
+	    </span>						
+	</div>
+    <div class="seeImgArea" ng-show="ctrl.seeImgArea">
+        <div class="imgOrginalArea">
+            <img-crop image="myImage" result-image="myCroppedImage" area-type="square" result-image-size="100"></img-crop>
+        </div>
+        <div class="cropArea">
+            <p>預覽裁切圖片：</p>
+            <img ng-src="{{myCroppedImage}}" /> 
+        </div>
+    </div>
+    <div class="file-desc">
+        <ul>
+            <li>上傳格式：png、gif、jpg 的圖片</li>
+            <li>檔案大小：小於500k</li>
+            <li class="text-primary">「確定」後即可進行其他操作</li>
+    	</ul>
+    </div>	                	                
+</div>	

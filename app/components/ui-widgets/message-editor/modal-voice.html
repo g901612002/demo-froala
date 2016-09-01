@@ -1,0 +1,49 @@
+<div ng-init="ctrl.init()">
+	<div class="modal-header">
+	    <h4 class="modal-title">請選擇語音</h4>
+	</div>
+	<div class="modal-body">
+		<div class="row modal-toolbar">
+			<a ui-sref="main.ca-media.voice-edit" target="_blank"
+				class="btn btn-sm btn-success btn-right">
+				<i class="fa fa-plus"></i>
+				<span>新建語音</span>
+			</a>
+		</div>
+		<div class="voice-content">
+			<div class="row"
+				ng-repeat="voice in ctrl.voicelist"
+				ng-click="ctrl.doSelectVoice(voice)"
+				ng-class="{'voice-selected':voice.selected}">
+				<div class="col-sm-6">
+					<input type="radio" name="optradio"
+					ng-value="voice.pkey"
+					ng-model="ctrl.selectvoice.pkey">&nbsp;
+					<span ng-bind="voice.title"></span>
+				</div>
+				<div class="col-sm-2">
+					<span ng-bind="voice.time | limitTo:10"></span>
+				</div>
+				<div class="col-sm-2">
+					<span ng-bind="Util.secChangeTimeFormat(voice.length)"></span>
+				</div>
+				<div class="col-sm-2 text-center">
+					<voiceplay voicepkey="voice.pkey" voiceurl="Util.getAssetUrl(voice.voice)"></voiceplay>
+				</div>
+			</div>
+			<div class="text-center" ng-if="!ctrl.display">
+            	<pagination ng-hide="ctrl.totalcount<=ctrl.pagesize" items-per-page="ctrl.pagesize" total-items="ctrl.totalcount" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+        </div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="footer-right">
+		    <button class="btn btn-primary" ng-click="ctrl.ok()" >
+		        <span>確定</span>
+		    </button>
+		    <button class="btn btn-warning" ng-click="ctrl.cancel()">
+		        <span>取消</span>
+		    </button>
+	    </div>
+	</div>
+</div>

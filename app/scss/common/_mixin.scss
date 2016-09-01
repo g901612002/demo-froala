@@ -1,0 +1,22 @@
+@mixin span-ellipsis($w) {
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: $w; 
+}
+
+@mixin btn-round-none {
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
+
+@mixin list-style-default{
+	ul{
+		list-style-type:disc;
+	}
+	ol{
+		list-style-type:decimal;
+	}
+}

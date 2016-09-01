@@ -1,0 +1,71 @@
+.appinfo {
+    .appinfo-result {
+        table {
+            td {
+                &:nth-child(2),
+                &:nth-child(3),
+                &:nth-child(4) {
+                    position: relative;
+                    span {
+                        display: block;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 120px;
+                    }
+                }
+                &:nth-child(4){
+                    span {
+                        width: 160px;
+                    }
+                }
+                &:nth-child(3) {
+                    span {
+                        width: 100px;
+                    }
+                }
+                &:last-child {
+                    border-left: $layout-border;
+                }
+            }
+        }
+    }
+}
+
+// 詳細資料-高度
+.detail-height {
+    min-height: 34px;
+    padding: 4px 12px 0 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+.appidGroup {
+    margin-bottom: 10px;
+    div{
+        margin-bottom: 10px;
+    }
+}
+
+.app-cat-modal{
+    @extend %all-modal;
+    .catname{
+        @include span-ellipsis(100px);
+    }
+    .wrapper {
+        //height: 300px;
+    }
+    .table {
+        margin-bottom: 0;
+        &> thead > tr > th:first-child {
+            border-left: 1px solid #ddd;
+            width: 50px;
+        }
+    }
+    p {
+        padding: 20px 0 0 0;
+        color: #666;
+    }
+}
+

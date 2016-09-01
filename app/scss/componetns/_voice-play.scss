@@ -1,0 +1,14 @@
+.voice-play{
+	.item{
+		cursor: pointer;
+		display:block;
+		width:60px;
+		height:60px;
+	}
+	.icon{
+		background:url("images/voice_icon.png");
+	}
+	.audio{
+		background:url("images/voice_audio.gif");
+	}
+}

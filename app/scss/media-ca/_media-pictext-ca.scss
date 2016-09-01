@@ -1,0 +1,521 @@
+.ca-media-pictext {
+    a,
+    button {
+        cursor: pointer;
+    }
+    margin: 25px;
+    .title {
+        height: 30px;
+        margin: 20px 0 10px 0;
+        position: relative;
+        .goback {
+            color: #999;
+            i {
+                margin-right: 5px;
+            }
+            &:hover {
+                color: #5389d6;
+            }
+        }
+        p {
+            line-height: 30px;
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    .pictext-list {
+        margin: 30px 0 90px;
+        .list {
+            word-wrap: break-word;
+            overflow: hidden;
+            &>li {
+                width: 290px;
+                border: 1px solid #e7e7eb;
+                padding: 0px 0px 45px 0px;
+                position: relative;
+                float: left;
+                margin: 0 25px 25px 0;
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                &:nth-child(3n+1) {
+                    clear: both;
+                }
+                &.one {
+                    h5 {
+                        margin: 5px 15px;
+                        a {
+                            display: block;
+                            color: #333;
+                            padding: 5px 0;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    em {
+                        color: #999;
+                        display: block;
+                        margin: 3px 15px;
+                        font-style: normal;
+                    }
+                    p {
+                        color: #999;
+                        line-height: 1.6;
+                        margin: 5px 15px;
+                    }
+                    .imgArea {
+                        height: 160px;
+                        overflow: hidden;
+                        margin: 10px 15px;
+                        h5 {
+                            display: none;
+                        }
+                    }
+                }
+                &.other {
+                    ul {
+                        li+li {
+                            border-top: 1px solid #e7e7eb;
+                        }
+                        em {
+                            color: #999;
+                            font-style: normal;
+                        }
+                        .first {
+                            &>h5 {
+                                display: none;
+                            }
+                            em {
+                                display: block;
+                                margin: 10px 15px;
+                            }
+                            .imgArea {
+                                height: 160px;
+                                overflow: hidden;
+                                margin: 10px 15px;
+                                position: relative;
+                            }
+                        }
+                        .other {
+                            height: 120px;
+                            padding: 20px 15px;
+                            overflow: hidden;
+                            .imgArea {
+                                float: right;
+                                img {
+                                    width: 80px;
+                                    height: 80px;
+                                    position: relative;
+                                    &:after {
+                                        content: "";
+                                        width: 80px;
+                                        height: 80px;
+                                        display: block;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: url("images/default-square.jpg");
+                                        background-size: contain;
+                                    }
+                                }
+                                h5 {
+                                    display: none;
+                                }
+                            }
+                            h5 {
+                                float: left;
+                                width: 160px;
+                                max-height: 50px;
+                                overflow: hidden;
+                                margin-top: 10px;
+                                line-height: 1.5;
+                                a {
+                                    display: block;
+                                    color: #333;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            em {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .imgArea {
+                    img {
+                        width: 100%;
+                        position: relative;
+                        &:after {
+                            content: "";
+                            width: 258px;
+                            height: 160px;
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background: url("images/default-rectangle.jpg");
+                            background-size: contain;
+                        }
+                    }
+                    h5 {
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        max-height: 56px;
+                        line-height: 1.5;
+                        &:before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            background: #000;
+                            opacity: 0.5;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            zoom: -1;
+                        }
+                        a {
+                            position: relative;
+                            margin: 5px;
+                            display: block;
+                            color: #fff;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .btnArea {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 45px;
+                    overflow: hidden;
+                    background: #f4f4f4;
+                    border-top: 1px solid #e7e7eb;
+                    a {
+                        display: block;
+                        width: 138px;
+                        float: left;
+                        height: 45px;
+                        line-height: 45px;
+                        text-align: center;
+                        color: #B2B2B2;
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+                    a+a {
+                        width: 137px;
+                        border-left: 1px solid #e7e7eb;
+                    }
+                }
+            }
+        }
+    }
+    .editArea {
+        overflow: hidden;
+        p {
+            color: #999;
+        }
+        .edit_left {
+            width: 318px;
+            float: left;
+            border: 1px solid #e7e7eb;
+            li+li {
+                border-top: 1px solid #e7e7eb;
+            }
+            li {
+                position: relative;
+                .btnArea {
+                    display: none;
+                }
+                &:hover {
+                    .btnArea {
+                        display: block;
+                    }
+                }
+            }
+            .first {
+                &>h5 {
+                    display: none;
+                }
+                em {
+                    display: block;
+                    margin: 10px 15px;
+                }
+                .imgArea {
+                    height: 160px;
+                    overflow: hidden;
+                    position: relative;
+                }
+                .btnArea {
+                    line-height: 160px;
+                    li:last-child {
+                        display: none;
+                    }
+                }
+            }
+            .other {
+                height: 120px;
+                padding: 20px 15px;
+                overflow: hidden;
+                h5 {
+                    float: left;
+                    width: 160px;
+                    max-height: 50px;
+                    overflow: hidden;
+                    margin-top: 10px;
+                    line-height: 1.5;
+                    span {
+                        display: block;
+                        color: #333;
+                    }
+                }
+                .imgArea {
+                    float: right;
+                    h5 {
+                        display: none;
+                    }
+                    img {
+                        width: 80px;
+                        height: 80px;
+                        position: relative;
+                        &:after {
+                            content: "";
+                            width: 80px;
+                            height: 80px;
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background: url("images/default-square.jpg");
+                            background-size: contain;
+                        }
+                    }
+                }
+                .btnArea {
+                    line-height: 120px;
+                }
+            }
+            .imgArea {
+                img {
+                    width: 100%;
+                    &:after {
+                        content: "";
+                        width: 258px;
+                        height: 160px;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: url("images/default-rectangle.jpg");
+                        background-size: contain;
+                    }
+                }
+                h5 {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    max-height: 56px;
+                    min-height: 34px;
+                    line-height: 1.5;
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background: #000;
+                        opacity: 0.5;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        zoom: -1;
+                    }
+                    span {
+                        position: relative;
+                        margin: 5px;
+                        display: block;
+                        color: #fff;
+                        word-wrap: break-word;
+                    }
+                }
+            }
+            .btnArea {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                text-align: center;
+                &:before {
+                    content: "";
+                    background: #e7e7eb;
+                    opacity: 0.8;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                a {
+                    color: #999;
+                    &:hover {
+                        color: #333;
+                    }
+                    &.disabled,
+                    &[disabled] {
+                        cursor: not-allowed;
+                        &:hover {
+                            color: #999;
+                        }
+                        &:active {
+                            pointer-events: none;
+                        }
+                    }
+                }
+                ol {
+                    li {
+                        display: inline-block;
+                        margin: 0 5px;
+                        border-top: none;
+                    }
+                }
+            }
+            .addListBtn {
+                margin: 20px 15px;
+                display: block;
+                text-align: center;
+                border: 2px dotted #d9dadc;
+                padding: 15px 0;
+                color: #d9dadc;
+                &:hover {
+                    color: #999;
+                    border: 2px dotted #999;
+                }
+                &.disabled,
+                &[disabled] {
+                    cursor: not-allowed;
+                    &:hover {
+                        color: #d9dadc;
+                        border: 2px dotted #d9dadc;
+                    }
+                    &:active {
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+        .edit_right {
+            width: 580px;
+            float: right;
+            .formArea {
+                background: #f4f5f9;
+                border: 1px solid #e7e7eb;
+                padding: 20px;
+                margin-bottom: 20px;
+                position: relative;
+                label {
+                    margin-bottom: 10px;
+                    i {
+                        margin-right: 5px;
+                    }
+                    span {
+                        color: red;
+                        margin-left: 10px;
+                        font-size: 0.8em;
+                    }
+                    em {
+                        font-size: 0.8em;
+                        margin-left: 10px;
+                        color: #999;
+                    }
+                }
+                textarea {
+                    max-width: 100%;
+                }
+                .uploadImg {
+                    &>button {
+                        margin-left: 20px;
+                    }
+                }
+                .showImg {
+                    margin: 15px 0;
+                    img {
+                        width: auto;
+                        height: 100px;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+                .flag {
+                    label {
+                        margin: 0 5px;
+                    }
+                    input {
+                        margin-right: 10px;
+                    }
+                }
+                .fa-red {
+                    color: red;
+                    padding-top: 5px;
+                }
+            }
+            .formArea:after,
+            .formArea:before {
+                right: 100%;
+                top: 70px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            .formArea:after {
+                border-color: rgba(244, 245, 249, 0);
+                border-right-color: #f4f5f9;
+                border-width: 15px;
+                margin-top: -15px;
+            }
+            .formArea:before {
+                border-color: rgba(231, 231, 235, 0);
+                border-right-color: #e7e7eb;
+                border-width: 16px;
+                margin-top: -16px;
+            }
+        }
+    }
+    .btnGroup {
+        margin: 40px 0;
+        border-top: 1px solid #e7e7eb;
+        padding-top: 15px;
+        text-align: center;
+    }
+    .pictext-input {
+        position: relative;
+        input {
+            padding-right: 50px;
+        }
+        span {
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            color: #999;
+        }
+    }
+    .pictext-textarea {
+        p {
+            padding: 9px 9px 0 0;
+        }
+    }
+}

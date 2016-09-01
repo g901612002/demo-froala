@@ -1,0 +1,67 @@
+<div ng-init="ctrl.init()">
+	<div class="modal-header">
+	    <h4 class="modal-title">
+	    	<span ng-bind="ctrl.modalTitle"></span>
+	    </h4>
+	</div>
+	<div class="modal-body">
+		<div class="row modal-toolbar">
+			<a ui-sref="main.ca-media.video-edit" target="_blank"
+				class="btn btn-sm btn-success btn-right"
+				ng-if="!ctrl.display">
+				<i class="fa fa-plus"></i>
+				<span>新建影片</span>
+			</a>
+			<button ng-click="ctrl.backToList()"
+				class="btn btn-sm btn-default btn-right"
+				ng-if="ctrl.display">
+				<i class="fa fa-chevron-left"></i>
+				<span>返回列表</span>
+			</button>
+		</div>
+		<section class="video-list" ng-if="!ctrl.display">
+	        <ul class="list">
+	            <li ng-repeat="video in ctrl.videolist">
+	            	<section ng-click="ctrl.doSelectVideo(video)"
+	            		class="video-item"
+	            		ng-class="{'video-selected':video.selected}">
+	            		<h5 ng-bind="video.title"
+	            			class="video-text">
+	            		</h5>
+	            		<em>{{video.time | localDate}}</em>
+	            		<div class="video-area" ng-click="ctrl.displayVideo(video)">
+	            			<div class="video">
+	                            <img ng-src="{{video.frontCover}}">
+	                        </div>
+	            		</div>
+	            		<p ng-bind="video.summary" class="video-text"></p>
+	            	</section>
+	            	<div class="video-selected-mask"
+	            		ng-show="video.selected" >
+						<div class="fa fa-check fa-5x mask-icon">
+						</div>
+					</div>
+	            </li>
+	        </ul>
+		</section>
+		<section class="display-video" ng-if="ctrl.display">
+			<videoplay videourl="{{ctrl.displayvideo.video}}" typle="{{ctrl.displayvideo.type}}"></videoplay>
+		</section>
+        <div class="text-center" ng-if="!ctrl.display">
+            <pagination ng-hide="ctrl.totalcount<=ctrl.pagesize" items-per-page="ctrl.pagesize" total-items="ctrl.totalcount" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+        </div>
+	</div>
+	<div class="modal-footer">
+		<div class="footer-right">
+		    <button class="btn btn-primary"
+		    	ng-click="ctrl.ok()"
+		    	ng-if="!ctrl.display"
+		    	ng-disabled="!ctrl.selectvideo">
+		        <span>確定</span>
+		    </button>
+		    <button class="btn btn-warning" ng-click="ctrl.cancel()">
+		        <span>取消</span>
+		    </button>
+	    </div>
+	</div>
+</div>

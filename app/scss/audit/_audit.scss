@@ -1,0 +1,22 @@
+.audit-modal{
+    @extend %all-modal; 
+    .modal-dialog{
+        width: 900px;
+    }
+    .check-review{
+        padding-bottom: 20px;
+    }
+    .tab-frame{
+        border-left:$layout-border;
+        border-right:$layout-border;
+        border-bottom:$layout-border;
+        border-color:#DDD;
+        padding:20px;
+    }
+    .audit-accounts{
+        line-height:40px;
+    }
+    .audit-fn{
+         line-height:60px;
+    }
+}

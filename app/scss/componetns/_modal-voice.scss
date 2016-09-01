@@ -1,0 +1,25 @@
+.message-editor-voice-modal{
+    @extend %all-modal;
+    @extend %modal-toolbar;
+
+    .modal-dialog{
+        width: 900px;
+    }
+
+    .voice-content{
+        .voice-selected{
+            background:#f4f5f9;
+        }
+        .row{
+            padding:10px;
+            [class*='col-']{
+                height:70px;
+                line-height:70px;
+            }
+            .voice-play{
+                margin-top:5px;
+            }
+        }
+    }
+
+}

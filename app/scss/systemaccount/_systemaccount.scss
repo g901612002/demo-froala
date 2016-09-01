@@ -1,0 +1,54 @@
+.systemaccount {
+    .systemaccount-result {
+        table {
+            td {
+                &:nth-child(2),&:nth-child(3) {
+                    position: relative;
+                    .span-ellipsis {
+                        display: block;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 150px;
+                    }
+                }
+                &:nth-child(3) {
+                    .span-ellipsis {
+                        width: 130px;
+                    }
+                }
+                &:nth-child(4) {
+                    span {
+                        display: block;
+                        //color: #999;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 70px;
+                    }
+                }
+                &:last-child {
+                    border-left: $layout-border;
+                    white-space: nowrap;
+                }
+                .icon-info{
+                    //color: #fff;
+                    font-size:20px;
+                }
+            }
+        }
+    }
+}
+
+.systemaccount-password-modal{
+    @extend %all-modal; 
+    .modal-body{
+        min-height: 100px;
+    }
+}
+
+.multiSelect{
+    button{
+        text-align: left !important;
+    }
+}

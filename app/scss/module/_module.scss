@@ -1,0 +1,20 @@
+.module-modal{
+    @extend %all-modal; 
+    .modal-dialog{
+        width: 900px;
+    }
+    .tree-node {
+        border: 1px solid #dae2ea;
+        background: #f8faff;
+        color: #7c9eb2;
+        margin: 10px;
+        padding:10px;
+    }
+    .tree-node-content {
+        padding-left:10px;
+    }
+    .tree-checkbox {
+        width:10px;
+        left:-1px;
+    }
+}

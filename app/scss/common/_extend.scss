@@ -1,0 +1,34 @@
+%all-modal {
+	h4 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+}
+
+%modal-toolbar{
+	.modal-toolbar{
+	    overflow:hidden;
+	    border-bottom:$modal-border;
+	    line-height:50px;
+	    height:50px;
+	    .btn-right{
+	        margin-right:20px;
+	        font-size:14px;
+	        float:right;
+	    }
+    }
+}
+
+%menu-header {
+	background-color: #f4f5f9;
+	position: relative;
+	border-bottom: 1px solid #e7e7eb;
+	overflow: hidden;
+	height:60px;
+	line-height: 60px;
+}
+
+%pic-icon {
+	width:80px;
+	height:80px;
+}

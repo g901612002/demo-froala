@@ -1,0 +1,16 @@
+.video-play {
+    .videogular-container.youtube {
+        width: 100%;
+        height: 320px;
+        margin: auto;
+        overflow: hidden;
+    }
+}
+
+.display-video {
+    .video-play {
+        .videogular-container.youtube {
+            height: 480px;
+        }
+    }
+}

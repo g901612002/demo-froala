@@ -1,0 +1,102 @@
+<div class="ca-media-pictext" ng-controller="CAMediaPicTextEditCtrl as ctrl" ng-init="ctrl.init()">
+    <div class="title">
+        <p><a ui-sref="main.ca-media.pictext-list" class="goback"><i class="fa fa-chevron-circle-left"></i>圖文消息</a> / <span ng-bind="ctrl.stateTitle"></span></p>
+    </div>
+    <div class="editArea">
+        <div class="edit_left">
+            <ul>
+                <li ng-class="{first: $index === 0,other:$index !== 0}" ng-repeat="item in ctrl.item track by $index">
+                    <h5>{{item.title}}</h5>
+                    <div class="imgArea">
+                        <img ng-if="item.imgpath!==''" ng-src="{{Util.getAssetUrl(item.imgpath)}}" alt="">
+                        <img ng-if="item.imgpath===''" ng-src="{{item.defaultImg}}" alt="">
+                        <h5 ng-if="item.length!==1"><span>{{item.title}}</span></h5>
+                    </div>
+                    <div class="btnArea">
+                        <ol>
+                            <li><a ng-disabled="pictextEditForm.$invalid" ng-click="ctrl.editList($index)"><i class="fa fa-pencil fa-lg"></i></a></li>
+                            <li><a ng-click="ctrl.deleteList($index)"><i class="fa fa-trash fn-icon"></i></a></li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+            <a class="addListBtn" ng-disabled="pictextEditForm.$invalid" ng-click="ctrl.addList()"><i class="fa fa-plus"></i></a>
+        </div>
+        <div class="edit_right">
+            <div class="formArea" ng-style="{marginTop: ctrl.editAreaTOP}">
+                <form role="form" name="pictextEditForm" novalidate>
+                    <div class="form-group">
+                        <label><i class="fa fa-red fa-asterisk"></i>標題<em>(可填寫64個字)</em></label>
+                        <pictext-input 
+                            my-name="title"
+                            is-required="true"
+                            text-max-length="64"
+                            ng-model="ctrl.editArea.title">
+                        </pictext-input>
+                        <p class="fa-red" ng-show="pictextEditForm.title.$error.required && !pictextEditForm.title.$pristine">標題不能為空</p> 
+                    </div>
+                    <div class="form-group">
+                        <label>作者<em>(可填寫8個字)</em></label>
+                        <pictext-input 
+                            my-name="author"
+                            is-required="false"
+                            text-max-length="8"
+                            ng-model="ctrl.editArea.author">
+                        </pictext-input>            
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa fa-red fa-asterisk"></i>封面<em ng-if="ctrl.now===0">（大圖片建議尺寸：900像素* 500像素）</em><em ng-if="ctrl.now!==0">（小圖片建議尺寸：200像素* 200像素）</em></label>
+                        <div class="uploadImg">
+                            <picupload class="pull-left" btnclass="btn-default"
+                                channelpkey="ctrl.channelpkey">
+                            </picupload>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.openPicModal()">
+                                從素材庫中選取
+                            </button>
+                        </div>
+                        <div class="showImg" ng-if="ctrl.editArea.imgpath!==''">
+                            <img ng-src="{{Util.getAssetUrl(ctrl.editArea.imgpath)}}" alt="">
+                            <a ng-click="ctrl.deleteImg()">刪除</a>
+                        </div>
+                        <input ng-hide="ctrl.imgInputHide" type="text" name="imgpath" ng-model="ctrl.editArea.imgpath" required>
+                        <p class="fa-red" ng-show="pictextEditForm.imgpath.$error.required">圖片不能為空</p> 
+                    </div>
+                    <div class="form-group" ng-if="ctrl.now===0">
+                        <label>摘要<em>(選填，該摘要只在發送圖文消息為單條時顯示，可填寫120個字)</em></label>
+                        <pictext-textarea
+                            text-max-length="120"
+                            ng-model="ctrl.editArea.summary">
+                        </pictext-textarea> 
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa fa-red fa-asterisk"></i>請選擇使用編輯器或是外部連結</label>
+                        <div class="flag">
+                            <label><input type="radio" ng-model="ctrl.editArea.type" value="html">編輯器 </label>
+                            <label><input type="radio" ng-model="ctrl.editArea.type" value="web">外部連結</label>
+                        </div>  
+                    </div>
+                    <div class="form-group" ng-show="ctrl.editArea.type==='html'">
+                        <label><i class="fa fa-red fa-asterisk"></i>編輯器</label>
+                        <richeditor channelpkey="ctrl.channelpkey" ng-model="ctrl.editArea.editor"></richeditor>
+                        <input ng-hide="ctrl.imgInputHide" type="text" name="editor" ng-model="ctrl.editArea.editor" ng-required="ctrl.editArea.type==='html'">
+                        <p class="fa-red" ng-show="pictextEditForm.editor.$error.required">編輯器不能為空</p> 
+                    </div>
+                    <div class="form-group" ng-show="ctrl.editArea.type==='web'">
+                        <label><i class="fa fa-red fa-asterisk"></i>外部連結</label>
+                        <input name="urlLink" class="form-control" type="text" ng-model="ctrl.editArea.urlLink" ng-required="ctrl.editArea.type==='web'">
+                        <p class="fa-red" ng-show="pictextEditForm.urlLink.$error.required">外部連結不能為空</p>
+                    </div>
+                    <div class="form-group" ng-show="ctrl.editArea.type==='html'">
+                        <label><input type="checkbox" ng-model="ctrl.editArea.showLink">原文連結</label>
+                        <input class="form-control" type="text" ng-show="ctrl.editArea.showLink" ng-model="ctrl.editArea.link">
+                    </div>
+                </form>
+            </div>
+            <p>編輯好的圖文消息，需要點擊“儲存並群發”才能發送到關注者手機上。</p>
+        </div>
+    </div>
+    <div class="btnGroup">
+        <button class="btn btn-success" ng-disabled="pictextEditForm.$invalid" ng-click="ctrl.save()">儲存</button>
+        <button class="btn btn-default" ng-click="ctrl.save('addPush')">儲存並群發</button>
+    </div>
+</div>

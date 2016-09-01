@@ -1,0 +1,16 @@
+<div class="layout-message-voice" ng-class="{noborder:(messageShow === 'true')}">
+    <div ng-if="messageShow !=='true'">
+        <div class="pull-left voiceplay-block">
+            <voiceplay voicepkey="item.pkey" voiceurl="item.voice"></voiceplay>
+        </div>
+        <div class="pull-left voicedesc-block">
+            <span class="item title" ng-bind="item.title"></span>
+            <span class="item" ng-bind="item.length"></span>
+        </div>
+    </div>
+    <div ng-if="messageShow ==='true'">
+        <div class="voice-play">
+            <a class="icon" ng-click="modalOpen(voicePkey,item)"></a>
+        </div>
+    </div>
+</div>

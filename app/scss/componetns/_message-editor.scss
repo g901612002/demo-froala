@@ -1,0 +1,101 @@
+.message-editor-frame {
+    .editor-toolbar {
+        text-align: left;
+        border: $layout-border;
+        li {
+            margin-left: 15px;
+            display: inline-block;
+            a {
+                padding: 10px 0;
+                display: block;
+                cursor: pointer;
+                color: #999;
+                &:hover,
+                &.active {
+                    color: #333;
+                }
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+    .api-editor {
+        border-left: $layout-border;
+        border-right: $layout-border;
+        border-bottom: $layout-border;
+        padding: 30px;
+    }
+    .text-editor {
+        border-left: $layout-border;
+        border-right: $layout-border;
+        textarea {
+            border: none;
+            max-width: 100%;
+            max-height: 260px;
+            overflow-y: auto;
+            box-shadow: none;
+            margin: 0px;
+            &:focus {
+                box-shadow: none;
+                border-color: none;
+            }
+        }
+        .editor-tip {
+            border-top: $layout-border;
+            border-bottom: $layout-border;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: #999;
+            height: 36px;
+        }
+    }
+    .media-editor {
+        border: $layout-border;
+        border-top: none;
+        .media-fn {
+            &:nth-child(2) {
+                margin-left: 12px;
+            }
+            a {
+                display: block;
+                padding: 60px;
+                color: #999;
+            }
+            color: #999;
+            cursor:pointer;
+            display:inline-block;
+            border:2px dotted #d9dadc;
+            width:48%;
+            text-align:center;
+        }
+        .fn-text {
+            padding: 10px;
+        }
+        .media-icon {
+            @extend %pic-icon;
+            position: relative;
+            &:after {
+                content: "";
+                width: 80px;
+                height: 80px;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: url("images/default-square.jpg");
+                background-size: contain;
+            }
+        }
+        .media-content {
+            padding: 20px;
+        }
+        .media-delete {
+            color: #459ae9;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,180 @@
+a,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+body {
+    background-color: $background-color;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.message-pic {
+    margin-top: 10px;
+    @extend %pic-icon;
+    cursor: pointer;
+    position: relative;
+    &:after {
+        content: "";
+        width: 80px;
+        height: 80px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("images/default-square.jpg");
+        background-size: contain;
+    }
+}
+
+.message-pic-modal {
+    text-align: center;
+    img {
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        &:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("images/default-square.jpg");
+            background-size: contain;
+        }
+    }
+}
+
+.circle {
+    width: 114px;
+    height: 114px;
+    border-radius: 57px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.circle-icon {
+    width: 114px;
+    height: 114px;
+    line-height: 114px;
+}
+
+.field-error {
+    color: red;
+    padding-top: 10px;
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+
+.fa-red {
+    color: red;
+}
+
+.text-disabled {
+    color: #aaa;
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    margin-top: 0px;
+}
+
+canvas {
+    margin: 5px 10px 0 0;
+}
+
+.modal-button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    &.btn-sm {
+        padding: 0;
+        border: none;
+        border-radius: 3px;
+        &>div {
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px;
+        }
+    }
+    &>div {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 18px;
+        line-height: 1.42857;
+        border-radius: 4px;
+        user-select: none;
+    }
+}
+
+.modal-button.btn-default {
+    &>div {
+        border-color: #ccc;
+    }
+}
+
+.modal-button.btn-success {
+    &>div {
+        border-color: #4cae4c;
+    }
+}
+
+.modal-button.btn-warning {
+    &>div {
+        border-color: #eea236;
+    }
+}
+
+.modal-button.btn-primary {
+    &>div {
+        border-color: #2e6da4;
+    }
+}
+
+.modal-button.btn-danger {
+    &>div {
+        border-color: #d43f3a;
+    }
+}
+
+.modal-button.btn-info {
+    &>div {
+        border-color: #46b8da;
+    }
+}
+
+// 使火狐寬高一致
+@-moz-document url-prefix() {
+    .modal-button.btn-sm>div {
+        padding: 6px 12px;
+    }
+}
+
+// toast:用來處理背景可以不被蓋掉而不能被點擊 
+#toast-container {
+    width: 300px;
+    &.toast-top-center {
+        right: 50%;
+        margin-right: -150px;
+    }
+}

@@ -1,0 +1,22 @@
+<div ng-click="modalAlertOpen()">
+    <span ng-transclude></span>
+</div>
+<script type="text/ng-template" id="modal-alert-inner.html">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <span ng-bind="ctrl.modalInfo.title"/>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div template-content template="{{ctrl.modalInfo.bodyTemplate}}"></div>
+        <span ng-bind="ctrl.modalInfo.bodyText"/>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ctrl.ok()" ng-show="ctrl.displayBtn(ctrl.modalInfo.ok)">
+            <span ng-bind="ctrl.modalInfo.ok"/>
+        </button>
+        <button class="btn btn-warning" ng-click="ctrl.cancel()" ng-show="ctrl.displayBtn(ctrl.modalInfo.cancel)">
+            <span ng-bind="ctrl.modalInfo.cancel"/>
+        </button>
+    </div>
+</script>

@@ -1,0 +1,30 @@
+{
+  "name": "channel",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-ui-datetime-picker": "~1.2.1",
+    "angular-bootstrap": "~0.13.4",
+    "font-awesome": "~4.4.0",
+    "angular-file-upload": "~2.1.4",
+    "floatThead": "~1.2.13",
+    "angular-ui-tree": "~2.9.0",
+    "angular-multi-select": "~4.0.0",
+    "angular-toastr": "~1.5.0",
+    "angular-animate": "~1.4.5",
+    "angular-bootstrap-checkbox": "~0.3.1",
+    "ng-file-upload": "~7.2.1",
+    "angular-bootstrap-lightbox": "~0.9.0",
+    "angular-froala": "~2.0.1",
+    "ng-img-crop": "ngImgCrop#~0.3.2",
+    "angular-ui-router-styles": "~0.0.6",
+    "angular-audio": "~1.7.1"
+  }
+}

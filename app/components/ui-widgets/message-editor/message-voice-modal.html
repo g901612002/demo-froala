@@ -1,0 +1,16 @@
+<div ng-init="ctrl.init()">
+  <div class="modal-header">
+      <h4 class="modal-title">
+          語音播放
+      </h4>
+  </div>
+  <div class="modal-body">
+    <voiceplay voicepkey="ctrl.pkey" voiceurl="ctrl.item.voice"></voiceplay>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-warning"
+              ng-click="ctrl.cancel()">
+              關閉
+      </button>
+  </div>
+</div>

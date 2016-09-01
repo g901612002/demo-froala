@@ -1,0 +1,67 @@
+<div ng-init="ctrl.init()">
+	<div class="modal-header">
+	    <h4 class="modal-title">選擇素材</h4>
+	</div>
+	<div class="modal-body">
+		<div class="pictext-toolbar">
+		    <div class="layout-searchbar pull-left">
+		        <form ng-submit="ctrl.doSearch()">
+		            <div class="input-group input-group-sm">
+		                <input class="form-control" type="text" ng-change="ctrl.keyAction();" ng-model="ctrl.searchCondition" placeholder="標題/作者">
+		                <a class="input-group-addon" ng-click="ctrl.doSearch();"><i class="fa fa-search"></i></a>
+		            </div>
+		        </form>
+		        <a class="searchClose" ng-show="ctrl.showClearBtn" ng-click="ctrl.clear();"><i class="fa fa-times-circle"></i></a>
+		    </div>
+			<a type="button"
+				class="btn btn-sm btn-primary pull-right"
+				ui-sref="main.ca-media.pictext-edit" target="_blank">
+				<i class="fa fa-plus"></i>
+				<span>新建圖文消息</span>
+			</a>
+		</div>
+	    <section class="pictext-list">
+	    	<p class="text-center" ng-bind="ctrl.errorMessage"></p>
+	    	<p class="text-center" ng-show="ctrl.searchResult">沒有搜索結果，請重新輸入關鍵字或者查看<a ng-click="ctrl.init()">全部圖文消息</a></p>
+	        <ul class="list">
+	            <li 
+	            	ng-class="{'pictext-selected':item.selected,'one': item.pictextContentDatas.length === 1,'other':item.pictextContentDatas.length !== 1}"
+	            	ng-repeat="item in ctrl.item"
+					ng-click="ctrl.doSelectPicText(item)">
+	                <ul>
+	                    <li ng-class="{first: $first,other:!$first}" ng-repeat="list in item.pictextContentDatas">
+	                        <h5><a ui-sref="pictext-html({masterpkey:item.pictextContentDatas[0].masterpkey,index:$index})" ng-bind="list.title"></a></h5>
+	                        <em>{{list.time | localDate}}</em>
+	                        <div class="imgArea">
+	                            <img ng-src="{{Util.getAssetUrl(list.imgpath)}}" alt="">
+	                            <h5 ng-if="item.pictextContentDatas.length!==1"><a ui-sref="pictext-html({masterpkey:item.pictextContentDatas[0].masterpkey,index:$index})" ng-bind="list.title"></a></h5>
+	                        </div>
+	                        <p ng-if="item.pictextContentDatas.length===1" ng-bind="list.summary"></p>
+	                        <div class="pictext-selected-mask" ng-show="item.selected" >
+								<div class="fa fa-check fa-5x mask-icon">
+								</div>
+							</div>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <div class="text-center">
+	            <pagination ng-show="ctrl.totalcount>ctrl.pagesize" items-per-page="ctrl.pagesize" total-items="ctrl.totalcount" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+	        </div>
+	    </section>
+	</div>
+	<div class="modal-footer">
+		<div class="footer-left">
+			己選{{ctrl.selectpiccount}}個，可選{{ctrl.selectpiclimit}}個
+		</div>
+		<div class="footer-right">
+		    <button ng-disabled="ctrl.selectpiccount===0"
+		    	class="btn btn-primary" ng-click="ctrl.ok()" >
+		        <span>確定</span>
+		    </button>
+		    <button class="btn btn-warning" ng-click="ctrl.cancel()">
+		        <span>取消</span>
+		    </button>
+	    </div>
+	</div>
+</div>
